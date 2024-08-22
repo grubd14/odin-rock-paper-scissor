@@ -1,9 +1,6 @@
-//function to get random value from 0 to 2
+//function to get random value freturnm 0 to 2
 //in int with long decimal value
 //
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
   let randomValue = Math.floor(Math.random() * 3);
   if (randomValue === 0 ) {
@@ -22,25 +19,38 @@ function humanChoice() {
 }
 
 
+//function to play game 5 rounds
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
 
-//function to play the game 
-function playRound(humanSelection, computerSelection) {
-  if (humanSelection === "rock" && computerSelection === "scissor") {
-    return "You win!";
-  } else if(humanSelection === "scissor" && computerSelection === "paper") {
-    return "You win!"; 
-  } else if ( humanSelection === "paper" && computerSelection === "rock") {
-    return "You win!";
-  } else if (humanSelection === computerSelection) {
-    return "tie" ;
-  } else {
-    return "You lose!"
+  function playRound(humanSelection, computerSelection) {
+    if ((humanSelection === "rock" && computerSelection === "scissor") || (humanSelection === "scissor" && computerSelection === "paper") || ( humanSelection === "paper" && computerSelection === "rock")){
+       humanScore++;
+      return "You win!";
+    }else if (humanSelection === computerSelection) {
+      return "tie";
+    } else {
+       computerScore++;
+      return "You lose!"
+    }
   }
+
+  for (i = 0; i < 5; i++) {
+    playRound(humanChoice(), getComputerChoice());
+  }
+
+  console.log(humanScore);
+  console.log(computerScore);
+  
+  if (humanScore > computerScore) {
+    return "You win!";
+  } else if(computerScore > humanScore) {
+    return "Computer win!";
+  } else {
+    return "Draw!";
+  }
+
 }
 
-const humanSelection = humanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(playRound(humanSelection, computerSelection));
-console.log(humanSelection);
-console.log(computerSelection);
+console.log(playGame());
