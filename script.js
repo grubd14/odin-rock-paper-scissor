@@ -50,15 +50,23 @@ displayResult.appendChild(winnerDisplay);
 function checkWinner() {
   if (humanScore === 5 ) {
     winnerDisplay.textContent = "Congratulations You have won the round!!!";
+    resetGame()
   } else if(computerScore === 5) {
-    winnerDisplay.textContent = "Sad :( Computer wins!!!";
-    return "Computer win!";
+    winnerDisplay.textContent = "Sad Computer wins!";
+    resetGame();
   }
+}
+
+function resetGame() {
+  humanScore = 0;
+  computerScore = 0;
+  updateScoreDisplay();
+  updateScoreDisplay();
 }
 
 //updating scores on the DOM
 function updateScoreDisplay() {
-  const displayShow = `Human Score: ${humanScore} Computer Score: ${computerScore}`;
+  const displayShow = `Human Score: ${humanScore}   Computer Score: ${computerScore}`;
   scoreDisplay.innerHTML = displayShow;
 }
 

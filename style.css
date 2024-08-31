@@ -1,0 +1,43 @@
+*{
+  /* outline: 1px solid red !important;  */
+  background: #60778b;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: "Handjet", sans-serif;
+  font-size: 56px;
+}
+.selections {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  gap: 20px;
+}
+
+button {
+  padding: 20px;
+  border-radius: 12px;
+  border-color: black;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-display {
+  font-size: 32px;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.winner-diplay {
+  font-size: 28px;
+  font-family: "Handjet", sans-serif;
+  font-weight: 250;
+  padding: 10px;
+}
